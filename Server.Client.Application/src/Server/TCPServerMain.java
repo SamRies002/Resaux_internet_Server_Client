@@ -12,11 +12,9 @@ public class TCPServerMain {
 	    	int portServer = 2405;
 	    	ServerSocket startSocket = new ServerSocket(portServer);
 	    	Socket clientSocket = null;
+	    	DataForTheServer dataServer = new DataForTheServer();
 	    	
 	    	try{
-	    		
-	    		
-	    		
 	    		System.out.println("server is active...");
 	    		
 	    		while(true){
@@ -28,7 +26,7 @@ public class TCPServerMain {
 	    			//output.write(clientResponse);
 	    			//System.out.println("test");
 	    			Connection clientConnection = new Connection(clientSocket);
-	    		    
+	    			
 	    		}
 	    		
 	    	}catch(IOException e){
@@ -37,6 +35,7 @@ public class TCPServerMain {
 	    	finally {
 	    	
 	    			clientSocket.close();
+	    			startSocket.close();
 	    	
 	    			}
 
