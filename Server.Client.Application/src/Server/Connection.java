@@ -13,6 +13,7 @@ public class Connection extends Thread{
 	BufferedReader input;
 	BufferedWriter output;
 	Socket clientSocket;
+	
 	//NEW FOR LATER GET HASHMAP MUST DO IT INTO THE CONSTRUCTOR
 	DataForTheServer dataServer;
 	
@@ -38,7 +39,7 @@ public class Connection extends Thread{
 		System.out.println("Connected2");
 		// FEHLER stop hier 
 		// beim start vom server geht es schon hier hin und führt die InputOutputHelp.readFromInput aus.
-		String clientInput = InputOutputHelp.readFromInput(input);
+		String clientInput = input.readLine();
 		System.out.println("Received: " + clientInput);
 		if (clientInput.equals("S")|| clientInput.equals("SET") ){
 			

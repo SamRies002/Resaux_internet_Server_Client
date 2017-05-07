@@ -1,6 +1,7 @@
 package Client;
 import java.io.*;
 import java.net.*;
+import java.util.Scanner;
 
 
 public class TCPCLientMain {
@@ -9,11 +10,27 @@ public class TCPCLientMain {
 	
 		Socket clientSocket = null;
 		String inputClient;
-		
+		int input1;
+		boolean loop = true;
 		try{
 			
 			while(true){
-			 int serverPort = 2405;
+			 int serverPort;
+			 serverPort = 2405;
+			 while(loop){
+			
+			 System.out.println("Enter the port (2405, 2406, 2407, 2408, 2409, 2410, 2411, 2412 )");
+			 Scanner portScan = new Scanner(System.in);
+			 input1 = portScan.nextInt();
+			 if(input1 > 2404 && input1 < 2413){
+			 serverPort = input1;
+			 loop = false;
+			 }else{
+				 System.err.println("Can't find the specific server..");
+				
+			 }
+			 }
+			 
 			 BufferedReader input2 = new BufferedReader(new InputStreamReader(System.in));
 			 clientSocket = new Socket("localhost", serverPort);
 			 DataOutputStream outServer = new DataOutputStream(clientSocket.getOutputStream());
