@@ -8,32 +8,38 @@ public class TCPCLientMain {
 	public static void main(String[] args) throws Exception{
 	
 		Socket clientSocket = null;
-		String inputClient = null;
+		String inputClient;
 		
 		try{
-			String in;
 			
+			while(true){
 			 int serverPort = 2405;
-			 clientSocket = new Socket("localhost", 2405);
-			 BufferedReader input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+			 BufferedReader input2 = new BufferedReader(new InputStreamReader(System.in));
+			 clientSocket = new Socket("localhost", serverPort);
+			 DataOutputStream outServer = new DataOutputStream(clientSocket.getOutputStream());
 			 BufferedWriter output = new BufferedWriter (new OutputStreamWriter(clientSocket.getOutputStream()));
-			 
+			 BufferedReader input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 			 System.out.println("Enter a command: ");
-			 inputClient = input.readLine();
-			 
-			 while((inputClient = input.readLine()) != null){
-				 System.out.println(inputClient);
-			 }
+			 inputClient = input2.readLine();
+			 output.write(inputClient);
+			 System.out.println("Server Response: " + inputClient);
+			 //System.out.println(input);
+			 //System.out.println(output);
+			 //clientSocket.close();
+			 //while((inputClient = input.readLine()) != null){
+			//	 System.out.println(inputClient);
+			// }
 			
 			// System.out.println("Line Read: ");
-			output.write(inputClient);
+			//output.write(inputClient);
 			 
 			// System.out.println("Entered command :" + in);
 			 
-			 
+			}
 		}catch(IOException e){
 			System.err.println("ClientMain: " + e.getMessage());
 		}
+		
 	}
 }
 			 /**

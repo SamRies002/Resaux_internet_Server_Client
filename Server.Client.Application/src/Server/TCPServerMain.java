@@ -7,21 +7,40 @@ public class TCPServerMain {
 
 	    public static void main(String args[]) throws Exception {
 	    	
+	    	//String clientResponse;
+	    	//String clientResponse2;
+	    	int portServer = 2405;
+	    	ServerSocket startSocket = new ServerSocket(portServer);
+	    	Socket clientSocket = null;
+	    	
 	    	try{
-	    		int portServer = 2405;
-	    		ServerSocket startSocket = new ServerSocket(portServer);
+	    		
+	    		
 	    		
 	    		System.out.println("server is active...");
 	    		
 	    		while(true){
-	    			Socket clientSocket = startSocket.accept();
+	    			clientSocket = startSocket.accept();
+	    			//BufferedReader clientInput = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+	    			//BufferedWriter output = new BufferedWriter (new OutputStreamWriter(clientSocket.getOutputStream()));
+	    			//clientResponse = clientInput.readLine();
+	    			//System.out.println("Recived " + clientResponse);
+	    			//output.write(clientResponse);
+	    			//System.out.println("test");
 	    			Connection clientConnection = new Connection(clientSocket);
+	    		    
 	    		}
 	    		
 	    	}catch(IOException e){
 	    		System.out.println("Listen : " + e.getMessage());
 	    	}
+	    	finally {
 	    	
+	    			clientSocket.close();
+	    	
+	    			}
+
+	    		
 	    }
 }
 	    	/**

@@ -25,24 +25,27 @@ public class Connection extends Thread{
 	}
 	
 	public void run() {
-		
+		//System.out.println("Connected1");
+
 	try{
 		//initialize the buffer input and output
 		BufferedReader input = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
 		BufferedWriter output = new BufferedWriter (new OutputStreamWriter(clientSocket.getOutputStream()));
-		
+		//System.out.println("Connected2");
 		String clientInput = input.readLine();
-		if (clientInput.equals("SET") ){
+		if (clientInput.equals("S") ){
 			
 			//SET methode
 			output.write("SET chosen");
+			System.out.println("SET");
 			
 		}
 		
-		if (clientInput.equals("GET")) {
+		if (clientInput.equals("G")) {
 			
 			//GET methode
 			output.write("GET chosen");
+			System.out.println("GET");
 		}
 		
 	}catch(IOException e){
