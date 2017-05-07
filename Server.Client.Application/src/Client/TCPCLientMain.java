@@ -59,41 +59,4 @@ public class TCPCLientMain {
 		
 	}
 }
-			 /**
 		
-		        String sentence;
-		        String modifiedSentence;
-		        
-		        System.out.println("Enter a client message: ");
-		        //configure the scanner
-		        BufferedReader inFromUser = new BufferedReader(new InputStreamReader(System.in));
-		        
-		        //Scanner to read the ip and port.
-		        Socket clientSocket = new Socket("127.0.0.1", 2405);
-		        
-		        //Configure the Response for the server
-		        DataOutputStream outToServer = new DataOutputStream(clientSocket.getOutputStream());
-		        
-		        //What the client sends to the server
-		        BufferedReader inFromServer = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
-		        
-		        //Configure the string "sentence"
-		        sentence = inFromUser.readLine();
-		        
-		        //The response of the server
-		        outToServer.writeBytes(sentence + "\n");
-		        
-		        //2nd sentence
-		        modifiedSentence = inFromServer.readLine();
-		        
-		        //Server gives out the 2nd sentence
-		        System.out.println("FROM SERVER:" + modifiedSentence);
-		        
-		        //Close connection to server
-		        clientSocket.close();
-		    }
-		
-
-	} **/
-
-
